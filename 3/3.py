@@ -5,13 +5,10 @@ X = {letter: index for index, letter in enumerate(alphabet + alphabet.upper(), s
 with open("3/3.txt") as f:
     total = 0
     for item in f.read().split("\n"):
-        l = len(item)//2
-        item1 = [i for i in item[:l]]
-        item2 = [i for i in item[l:]]
+        item1, item2 = [i for i in item[:len(item)//2]], [i for i in item[len(item)//2:]]
         letter = set(item1).intersection(item2).pop()
         prio = X.get(letter)
         total += prio
-
 print(total)
 
 # part 2
